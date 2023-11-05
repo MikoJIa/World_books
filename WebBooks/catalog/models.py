@@ -42,7 +42,7 @@ class Author(models.Model):
                               verbose_name='Фото автора', null=True, blank=True)
 
     def __str__(self):
-        return self.last_name
+        return f'{self.first_name} {self.last_name}'
 
 
 class Book(models.Model):
