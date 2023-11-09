@@ -2,4 +2,10 @@ from django.shortcuts import render, HttpResponse
 
 
 def index(request):
-    return HttpResponse('<h1>Главная страница сайта "Мир книг"</h1>')
+    text_head = 'Это заголовок главной страницы сайта'
+    text_body = 'Это содержимое главной страницы сайта'
+    context = {
+        'text_head': text_head,
+        'text_body': text_body
+    }
+    return render(request, 'catalog/index.html', context)
