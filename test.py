@@ -15,12 +15,17 @@
 #
 # print(response.text)
 
-
-def reverse_words(text):
-    new_text = []
-    for item in text.split(' '):
-        new_text.append(item[::-1])
-    return ' '.join(new_text)
+import math
 
 
-print(reverse_words('double  spaced  words'))
+def series_sum(n):
+    res = 0
+    if n <= 1:
+        return "{:.2f}".format(n)
+    if n > 1:
+        for i in range(n):
+            res += 1 / (3 * i + 1)
+        return str("{:.2f}".format(res))
+
+
+print(series_sum(5))
