@@ -1,13 +1,31 @@
 from django.shortcuts import render, HttpResponse
 
 from .models import Author, Book, BookInstance
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 class BookListView(ListView):
     model = Book
     context_object_name = 'books'
     template_name = 'catalog/book_list.html'
+    paginate_by = 3
+
+
+class BookDetailView(DetailView):
+    model = Book
+    context_object_name = 'book'
+    template_name = 'catalog/book_detail.html'
+
+
+class AuthorListView(ListView):
+    model = Author
+    paginate_by = 4
+    context_object_name = 'author_list'
+    template_name = 'catalog/authors_list.html'
+
+
+class AuthorDetailView(DetailView):
+    model = Author
 
 
 def index(request):
